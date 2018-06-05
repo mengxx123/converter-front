@@ -3,7 +3,9 @@ import Router from 'vue-router'
 
 const Home = resolve => require(['@/views/Home'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
-
+const MimeType = resolve => require(['@/views/MimeType'], resolve)
+const FileSignature = resolve => require(['@/views/FileSignature'], resolve)
+const Utf8 = resolve => require(['@/views/Utf8'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -16,6 +18,18 @@ let routes = [
     {
         path: '/about',
         component: About
+    },
+    {
+        path: '/mimeType',
+        component: MimeType
+    },
+    {
+        path: '/fileSignature',
+        component: FileSignature
+    },
+    {
+        path: '/utf8',
+        component: Utf8
     },
     {
         path: '*',
