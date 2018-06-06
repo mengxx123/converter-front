@@ -2,13 +2,20 @@
     <my-page title="编码转换" :page="page">
         <textarea class="form-control" v-model="code" rows="6" placeholder="要转换的内容"></textarea>
         <div class="option">
-            <select v-model="from">
+            <ui-select-field class="select" v-model="from" :maxHeight="300">
+                <ui-menu-item :value="option.value"
+                    :title="option.text"
+                    v-for="option in options" :key="option.value"/>
+            </ui-select-field>
+            <!-- <select v-model="from">
                 <option :value="option.value" v-for="option in options">{{ option.text }}</option>
-            </select>
-            转
-            <select v-model="to">
-                <option :value="option.value" v-for="option in options2">{{ option.text }}</option>
-            </select>
+            </select> -->
+            <div class="convert">转</div>
+            <ui-select-field class="select" v-model="to" :maxHeight="300">
+                <ui-menu-item :value="option.value"
+                    :title="option.text"
+                    v-for="option in options2" :key="option.value"/>
+            </ui-select-field>
         </div>
         <ui-select label="Normal" v-model="from" full-width>
             <ui-option v-for="option,index in options" :key="option" :label="option" :value="option"></ui-option>
@@ -28,8 +35,8 @@
         data () {
             return {
                 code: '请将您要转换的汉字内容粘贴在这里。',
-                to: 'utf-8',
-                from: 'gbk',
+                to: '',
+                from: '',
                 options: [
 //                    {
 //                        value: 'utf-8',
@@ -118,7 +125,7 @@
                     {
                         value: 'us-ascii',
                         text: 'us-ascii'
-                    },
+                    }
 //            Windows 125x family, ISO-8859 family, IBM/DOS codepages, Macintosh family, KOI8 family
 //                            Shift_JIS,
 //                            EUC-JP.
@@ -142,6 +149,8 @@
             }
         },
         mounted() {
+            this.from = 'gbk'
+            this.to = 'utf-8'
             console.log('debug')
             console.log(iconv.decode('ÄãºÃ', 'gbk') === '你好')
             console.log(iconv.decode('ÄãºÃ', 'gb2312') === '你好')
@@ -191,7 +200,17 @@
         outline: none;
     }
     .option {
+        display: flex;
+        justify-content: space-between;
+        max-width: 400px;
         margin-top: 16px;
+        .select {
+            width: 40%;
+            max-width: 180px;
+        }
+        .convert {
+            line-height: 48px;
+        }
     }
     .btns {
         margin-top: 16px;
