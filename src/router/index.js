@@ -7,6 +7,7 @@ const MimeType = resolve => require(['@/views/MimeType'], resolve)
 const FileSignature = resolve => require(['@/views/FileSignature'], resolve)
 const Utf8 = resolve => require(['@/views/Utf8'], resolve)
 const Test = resolve => require(['@/views/Test'], resolve)
+const CharsetConvert = resolve => require(['@/views/CharsetConvert'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -31,6 +32,10 @@ let routes = [
     {
         path: '/utf8',
         component: Utf8
+    },
+    {
+        path: '/charset/convert',
+        component: CharsetConvert
     },
     {
         path: '/test',

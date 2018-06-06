@@ -15,6 +15,9 @@
                 <ui-list-item title="UTF-8 编码解码" to="/utf8">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
+                <ui-list-item title="文本编码转换" to="/charset/convert">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
                 <ui-list-item title="关于" to="/about">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
