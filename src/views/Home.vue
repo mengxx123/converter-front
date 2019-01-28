@@ -1,46 +1,6 @@
 <template>
-    <my-page title="格式转换">
-        <h2>
-            <span class="title">文档</span>
-            <span class="sub-title">Document</span>
-        </h2>
-        <ul>
-            <li><a href="http://tool2.yunser.com/markdown/md2html" target="_blank">Markdown ⇆ HTML</a></li>
-        </ul>
-
-        <h2>
-            <span class="title">图片</span>
-            <span class="sub-title">Image</span>
-        </h2>
-        <ul>
-            <li><a href="http://img.tool.yunser.com/format" target="_blank">图片格式转换</a></li>
-            <li><a href="http://favicon.yunser.com/" target="_blank">图片 ⇆ .ico</a></li>
-        </ul>
-
-        <h2>
-            <span class="title">视频</span>
-            <span class="sub-title">Video</span>
-        </h2>
-        <div>开发中</div>
-
-        <!-- <h2>
-            <span class="title">音频</span>
-            <span class="sub-title">Audio</span>
-        </h2>
-        <div>开发中</div>
-
-        <h2>
-            <span class="title">电子书</span>
-            <span class="sub-title">eBook</span>
-        </h2>
-        <div>开发中</div>
-
-        <h2>
-            <span class="title">压缩</span>
-            <span class="sub-title">Archives</span>
-        </h2>
-        <div>开发中</div> -->
-
+    <my-page title="格式" :page="page">
+        <app-list :data="groups" />
     </my-page>
 </template>
 
@@ -48,25 +8,94 @@
     export default {
         data () {
             return {
+                groups: [
+                    {
+                        name: '基本',
+                        apps: [
+                            {
+                                name: '文件格式大全',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/extensions'
+                            },
+                            {
+                                name: '格式转化',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/convert'
+                            },
+                            {
+                                name: '文本格式转化',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/convert/text'
+                            },
+                            {
+                                name: '格式转化（导航）',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/convert2'
+                            },
+                            {
+                                name: 'MimeType',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/mimeType'
+                            },
+                            {
+                                name: '文件头信息',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/fileSignature'
+                            },
+                            {
+                                name: '文件头信息检测',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/fileSignatureDetect'
+                            }
+                        ]
+                    },
+                    {
+                        name: '其他',
+                        apps: [
+                            {
+                                name: 'PDF 压缩',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/pdf/compress'
+                            },
+                            {
+                                name: 'GIF 压缩',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/gif/compress'
+                            }
+                        ]
+                    }
+                ],
+                page: {
+                    menu: [
+                        {
+                            type: 'icon',
+                            icon: 'search',
+                            href: 'https://search.yunser.com?utm_source=converter',
+                            target: '_blank',
+                            title: '搜索'
+                        },
+                        {
+                            type: 'icon',
+                            icon: 'apps',
+                            href: 'https://app.yunser.com?utm_source=converter',
+                            target: '_blank',
+                            title: '应用'
+                        }
+                    ]
+                }
             }
         }
     }
 </script>
 
-<style lang="scss" scoped>
-    .title {
-        margin-right: 4px;
-        font-size: 20px;
-    }
-    .sub-title {
-        font-size: 16px;
-    }
-    ul {
-        margin-bottom: 24px;
-        list-style: disc;
-        li {
-            margin-left: 24px;
-            list-style: disc;
-        }
-    }
+<style scoped>
 </style>
