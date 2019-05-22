@@ -1,22 +1,24 @@
 <template>
     <my-page title="GIF 压缩">
-        <form>
-            <div class="form-group">
-                <input id="file" type="file" name="logo" class="from-control" @change="fileChange($event)">
-            </div>
-            <div class="btns">
-                <ui-raised-button class="btn" label="压缩" primary @click="upload" />
-            </div>
-            <div class="ui-loading" v-if="loading">
-                <ui-circular-progress :size="24"/>
-            </div>
-            <div class="result-box" v-if="result">
-                {{ result }}
-                <br>
-                <!-- <a :href="result" download>下载</a> -->
-                <a href="#" @click.prevent="download">点击下载</a>
-            </div>
-        </form>
+        <div class="common-container container">
+            <form>
+                <div class="form-group">
+                    <input id="file" type="file" name="logo" class="from-control" @change="fileChange($event)">
+                </div>
+                <div class="btns">
+                    <ui-raised-button class="btn" label="压缩" primary @click="upload" />
+                </div>
+                <div class="ui-loading" v-if="loading">
+                    <ui-circular-progress :size="24"/>
+                </div>
+                <div class="result-box" v-if="result">
+                    {{ result }}
+                    <br>
+                    <!-- <a :href="result" download>下载</a> -->
+                    <a href="#" @click.prevent="download">点击下载</a>
+                </div>
+            </form>
+        </div>
     </my-page>
 </template>
 

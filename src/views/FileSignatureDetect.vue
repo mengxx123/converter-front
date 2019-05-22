@@ -1,12 +1,14 @@
 <template>
     <my-page title="文件头信息检测">
-        <div class="search-bar">
-           <input type="file" id="files" name="files[]" multiple/>
-            <output id="list"></output>
-            <!-- <input type="file" @change="fileChange($event)"/> -->
-            <div v-if="result.finish">
-                <div>文件头：{{ result.coding }} ...</div>
-                <div>格式：{{ result.ext }}</div>
+        <div class="common-container container">
+            <div class="search-bar">
+            <input type="file" id="files" name="files[]" multiple/>
+                <output id="list"></output>
+                <!-- <input type="file" @change="fileChange($event)"/> -->
+                <div v-if="result.finish">
+                    <div>文件头：{{ result.coding }} ...</div>
+                    <div>格式：{{ result.ext }}</div>
+                </div>
             </div>
         </div>
     </my-page>

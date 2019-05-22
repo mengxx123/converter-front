@@ -1,6 +1,6 @@
 <template>
     <my-page title="文件格式搜索">
-        <div class="container">
+        <div class="common-container container">
             <div class="total">共收录 {{ total }} 种文件格式</div>
             <div class="search-box">
                 <input class="input" v-model="keyword" placeholder="输入文件格式">
@@ -76,9 +76,7 @@
 
 <style lang="scss" scoped>
     .container {
-        width: 560px;
-        max-width: 100%;
-        margin: 0 auto 16px auto;
+        max-width: 560px;
     }
     .search-box {
         display: flex;

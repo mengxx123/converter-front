@@ -1,12 +1,14 @@
 <template>
     <my-page :title="extension.name || title" backable>
-        <div v-if="extension">
-            <!-- <div>格式：{{ extension.name }}</div> -->
-            <div>类型：{{ extension.type | type }}</div>
-            <div>Mime Type：{{ extension.mimeType }}</div>
-            <div>标题：{{ extension.title }}</div>
-            <div>介绍：{{ extension.description }}</div>
-            <div>url：{{ extension.url }}</div>
+        <div class="common-container container">
+            <div v-if="extension">
+                <!-- <div>格式：{{ extension.name }}</div> -->
+                <div>类型：{{ extension.type | type }}</div>
+                <div>Mime Type：{{ extension.mimeType }}</div>
+                <div>标题：{{ extension.title }}</div>
+                <div>介绍：{{ extension.description }}</div>
+                <div>url：{{ extension.url }}</div>
+            </div>
         </div>
     </my-page>
 </template>

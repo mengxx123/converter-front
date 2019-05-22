@@ -1,28 +1,30 @@
 <template>
     <my-page title="文本格式转换">
-        <form>
-            <textarea class="form-control" v-model="text" rows="6" placeholder="文本"></textarea>
+        <div class="common-container container">
+            <form>
+                <textarea class="form-control" v-model="text" rows="6" placeholder="文本"></textarea>
 
-            <ui-select-field class="select" v-model="fromFormat" :maxHeight="300" label="从">
-                <ui-menu-item :title="item.text" :value="item.value" 
-                    v-for="item, index in fromFormats" :key="index"/>
-            </ui-select-field>
-            <br>
-            <ui-select-field class="select" v-model="toFormat" :maxHeight="300" label="转换为">
-                <ui-menu-item :title="item.text" :value="item.value" v-for="item, index in toFormats" :key="index"/>
-            </ui-select-field>
-            <div class="btns">
-                <ui-raised-button class="btn" label="转换" primary @click="upload" />
-            </div>
-            <div class="ui-loading" v-if="loading">
-                <ui-circular-progress :size="24"/>
-            </div>
-            <div class="result-box" v-if="result">
-                <textarea class="form-control" v-model="result" rows="6" placeholder="结果"></textarea>
-                <!-- <pre v-html="result"></pre> -->
-                <!-- <a href="#" @click.prevent="download">点击下载</a> -->
-            </div>
-        </form>
+                <ui-select-field class="select" v-model="fromFormat" :maxHeight="300" label="从">
+                    <ui-menu-item :title="item.text" :value="item.value" 
+                        v-for="item, index in fromFormats" :key="index"/>
+                </ui-select-field>
+                <br>
+                <ui-select-field class="select" v-model="toFormat" :maxHeight="300" label="转换为">
+                    <ui-menu-item :title="item.text" :value="item.value" v-for="item, index in toFormats" :key="index"/>
+                </ui-select-field>
+                <div class="btns">
+                    <ui-raised-button class="btn" label="转换" primary @click="upload" />
+                </div>
+                <div class="ui-loading" v-if="loading">
+                    <ui-circular-progress :size="24"/>
+                </div>
+                <div class="result-box" v-if="result">
+                    <textarea class="form-control" v-model="result" rows="6" placeholder="结果"></textarea>
+                    <!-- <pre v-html="result"></pre> -->
+                    <!-- <a href="#" @click.prevent="download">点击下载</a> -->
+                </div>
+            </form>
+        </div>
     </my-page>
 </template>
 

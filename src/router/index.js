@@ -3,7 +3,6 @@ import Router from 'vue-router'
 
 const Home = resolve => require(['@/views/Home'], resolve)
 const Convert = resolve => require(['@/views/Convert'], resolve)
-const About = resolve => require(['@/views/About'], resolve)
 const MimeType = resolve => require(['@/views/MimeType'], resolve)
 const FileSignature = resolve => require(['@/views/FileSignature'], resolve)
 const FileSignatureDetect = resolve => require(['@/views/FileSignatureDetect'], resolve)
@@ -31,10 +30,6 @@ let routes = [
     {
         path: '/convert2',
         component: Convert
-    },
-    {
-        path: '/about',
-        component: About
     },
     {
         path: '/convert',

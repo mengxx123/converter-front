@@ -1,38 +1,40 @@
 <template>
     <my-page title="文件头信息">
-        <div class="search-bar">
-            <input class="input" v-model="keyword" placeholder="输入关键词搜索（或 Ctrl + f 搜索）" />
-            <ui-icon-button icon="close" color="#999" v-if="keyword.length" @click="keyword = ''" />
+        <div class="common-container container">
+            <div class="search-bar">
+                <input class="input" v-model="keyword" placeholder="输入关键词搜索（或 Ctrl + f 搜索）" />
+                <ui-icon-button icon="close" color="#999" v-if="keyword.length" @click="keyword = ''" />
+            </div>
+            <ui-article class="article">
+                <p>共 <span v-if="keyword">{{ filtedMimes.length }} / </span> {{ mimes.length }} 条数据</p>
+                <table>
+                    <tr>
+                        <th>Mime Type（Content-Type）</th>
+                        <th>文件扩展名</th>
+                        <th>签名</th>
+                    </tr>
+                    <tr v-for="mime in filtedMimes">
+                        <td>{{ mime.mime }}</td>
+                        <td>
+                            <span class="extension" v-for="extension in mime.extensions">
+                                <ui-badge :content="extension" color="#999" />
+                                <!--{{ extension }}-->
+                            </span>
+                        </td>
+                        <td>
+                            <ul>
+                                <li v-for="item in mime.signature">
+                                    {{ formatSignature(item) }}
+                                </li>
+                            </ul>
+
+                        </td>
+                    </tr>
+
+                    <p v-if="!filtedMimes.length">搜索不到数据~</p>
+                </table>
+            </ui-article>
         </div>
-        <ui-article class="article">
-            <p>共 <span v-if="keyword">{{ filtedMimes.length }} / </span> {{ mimes.length }} 条数据</p>
-            <table>
-                <tr>
-                    <th>Mime Type（Content-Type）</th>
-                    <th>文件扩展名</th>
-                    <th>签名</th>
-                </tr>
-                <tr v-for="mime in filtedMimes">
-                    <td>{{ mime.mime }}</td>
-                    <td>
-                        <span class="extension" v-for="extension in mime.extensions">
-                            <ui-badge :content="extension" color="#999" />
-                            <!--{{ extension }}-->
-                        </span>
-                    </td>
-                    <td>
-                        <ul>
-                            <li v-for="item in mime.signature">
-                                {{ formatSignature(item) }}
-                            </li>
-                        </ul>
-
-                    </td>
-                </tr>
-
-                <p v-if="!filtedMimes.length">搜索不到数据~</p>
-            </table>
-        </ui-article>
     </my-page>
 </template>
 
@@ -116,10 +118,10 @@
     $divider: rgba(0,0,0,.12);
 
     .search-bar {
-        position: absolute;
-        top: 0;
-        left: 2px;
-        right: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 2px;
+        // right: 0;
         z-index: 10000;
         display: flex;
         justify-content: space-between;
@@ -137,11 +139,11 @@
         }
     }
     .article {
-        position: absolute;
-        top: 0;
-        left: 2px;
-        right: 0;
-        bottom: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 2px;
+        // right: 0;
+        // bottom: 0;
         padding: 16px;
         z-index: 10000;
         margin-top: 64px;

@@ -1,20 +1,22 @@
 <template>
     <my-page title="格式编辑" :page="page" backable>
-        <ui-text-field v-model="extension.name" label="格式名" />
-        <br>
-        <ui-text-field v-model="extension.title" label="标题" />
-        <br>
-        <ui-text-field v-model="extension.description" label="简介" />
-        <br>
-        <ui-text-field v-model="extension.mimeType" label="Mime Type" />
-        <br>
-        <ui-text-field v-model="extension.url" label="URL" />
-        <br>
-        <ui-select-field v-model="extension.type" label="类型">
-            <ui-menu-item :value="item.value" :title="item.title" v-for="item, index in types" :key="index" />
-        </ui-select-field>
-        <br>
-        <div @click="viewData">查看资料</div>
+        <div class="common-container container">
+            <ui-text-field v-model="extension.name" label="格式名" />
+            <br>
+            <ui-text-field v-model="extension.title" label="标题" />
+            <br>
+            <ui-text-field v-model="extension.description" label="简介" />
+            <br>
+            <ui-text-field v-model="extension.mimeType" label="Mime Type" />
+            <br>
+            <ui-text-field v-model="extension.url" label="URL" />
+            <br>
+            <ui-select-field v-model="extension.type" label="类型">
+                <ui-menu-item :value="item.value" :title="item.title" v-for="item, index in types" :key="index" />
+            </ui-select-field>
+            <br>
+            <div @click="viewData">查看资料</div>
+        </div>
     </my-page>
 </template>
 

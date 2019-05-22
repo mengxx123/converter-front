@@ -1,28 +1,30 @@
 <template>
     <my-page title="格式转换">
-        <form>
-            <div class="form-group">
-                <input id="file" type="file" name="logo" class="from-control" @change="fileChange($event)">
-            </div>
-            <ui-select-field class="select" v-model="fromFormat" label="文件格式">
-                <ui-menu-item :title="format" :value="format" v-for="format in fromFormats" :key="format"/>
-            </ui-select-field>
-            <ui-select-field class="select" v-model="toFormat" label="转换格式">
-                <ui-menu-item :title="format" :value="format" v-for="format in toFormats" :key="format"/>
-            </ui-select-field>
-            <div class="btns">
-                <ui-raised-button class="btn" label="转换" primary @click="upload" />
-            </div>
-            <div class="ui-loading" v-if="loading">
-                <ui-circular-progress :size="24"/>
-            </div>
-            <div class="result-box" v-if="result">
-                {{ result }}
-                <br>
-                <!-- <a :href="result" download>下载</a> -->
-                <a href="#" @click.prevent="download">点击下载</a>
-            </div>
-        </form>
+        <div class="common-container container">
+            <form>
+                <div class="form-group">
+                    <input id="file" type="file" name="logo" class="from-control" @change="fileChange($event)">
+                </div>
+                <ui-select-field class="select" v-model="fromFormat" label="文件格式">
+                    <ui-menu-item :title="format" :value="format" v-for="format in fromFormats" :key="format"/>
+                </ui-select-field>
+                <ui-select-field class="select" v-model="toFormat" label="转换格式">
+                    <ui-menu-item :title="format" :value="format" v-for="format in toFormats" :key="format"/>
+                </ui-select-field>
+                <div class="btns">
+                    <ui-raised-button class="btn" label="转换" primary @click="upload" />
+                </div>
+                <div class="ui-loading" v-if="loading">
+                    <ui-circular-progress :size="24"/>
+                </div>
+                <div class="result-box" v-if="result">
+                    {{ result }}
+                    <br>
+                    <!-- <a :href="result" download>下载</a> -->
+                    <a href="#" @click.prevent="download">点击下载</a>
+                </div>
+            </form>
+        </div>
     </my-page>
 </template>
 

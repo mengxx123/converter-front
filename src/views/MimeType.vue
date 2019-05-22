@@ -1,29 +1,31 @@
 <template>
     <my-page title="MineType">
-        <div class="search-bar">
-            <input class="input" v-model="keyword" placeholder="输入关键词搜索" />
-            <ui-icon-button icon="close" color="#999" v-if="keyword.length" @click="keyword = ''" />
-        </div>
-        <ui-article class="article">
-            <p>共 <span v-if="keyword">{{ filtedMimes.length }} / </span> {{ mimes.length }} 条数据</p>
-            <table>
-                <tr>
-                    <th>Mime Type（Content-Type）</th>
-                    <th>文件扩展名</th>
-                </tr>
-                <tr v-for="mime in filtedMimes">
-                    <td>{{ mime.mime }}</td>
-                    <td>
-                        <span class="extension" v-for="extension in mime.extensions">
-                            <ui-badge :content="extension" color="#999" />
-                            <!--{{ extension }}-->
-                        </span>
-                    </td>
-                </tr>
+        <div class="common-container container">
+            <div class="search-bar">
+                <input class="input" v-model="keyword" placeholder="输入关键词搜索" />
+                <ui-icon-button icon="close" color="#999" v-if="keyword.length" @click="keyword = ''" />
+            </div>
+            <ui-article class="article">
+                <p>共 <span v-if="keyword">{{ filtedMimes.length }} / </span> {{ mimes.length }} 条数据</p>
+                <table>
+                    <tr>
+                        <th>Mime Type（Content-Type）</th>
+                        <th>文件扩展名</th>
+                    </tr>
+                    <tr v-for="mime in filtedMimes">
+                        <td>{{ mime.mime }}</td>
+                        <td>
+                            <span class="extension" v-for="extension in mime.extensions">
+                                <ui-badge :content="extension" color="#999" />
+                                <!--{{ extension }}-->
+                            </span>
+                        </td>
+                    </tr>
 
-                <p v-if="!filtedMimes.length">搜索不到数据~</p>
-            </table>
-        </ui-article>
+                    <p v-if="!filtedMimes.length">搜索不到数据~</p>
+                </table>
+            </ui-article>
+        </div>
     </my-page>
 </template>
 
@@ -76,10 +78,10 @@
     $divider: rgba(0,0,0,.12);
 
     .search-bar {
-        position: absolute;
-        top: 0;
-        left: 2px;
-        right: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 2px;
+        // right: 0;
         z-index: 10000;
         display: flex;
         justify-content: space-between;
@@ -97,11 +99,11 @@
         }
     }
     .article {
-        position: absolute;
-        top: 0;
-        left: 2px;
-        right: 0;
-        bottom: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 2px;
+        // right: 0;
+        // bottom: 0;
         padding: 16px;
         z-index: 10000;
         margin-top: 64px;
