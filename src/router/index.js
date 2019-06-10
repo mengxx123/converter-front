@@ -12,6 +12,7 @@ const TiffText = resolve => require(['@/views/TiffText'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 const PdfCompress = resolve => require(['@/views/PdfCompress'], resolve)
 const GifCompress = resolve => require(['@/views/GifCompress'], resolve)
+const ImageCompress = resolve => require(['@/views/ImageCompress'], resolve)
 // 格式
 const Extension = resolve => require(['@/views/Extension'], resolve)
 const ExtensionDetail = resolve => require(['@/views/ExtensionDetail'], resolve)
@@ -86,6 +87,10 @@ let routes = [
     {
         path: '/gif/compress',
         component: GifCompress
+    },
+    {
+        path: '/image/compress',
+        component: ImageCompress
     },
     {
         path: '*',

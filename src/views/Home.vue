@@ -72,6 +72,12 @@
                                 desc: '',
                                 icon: '/static/img/file.svg',
                                 to: '/gif/compress'
+                            },
+                            {
+                                name: '图片压缩',
+                                desc: '',
+                                icon: '/static/img/file.svg',
+                                to: '/image/compress'
                             }
                         ]
                     }

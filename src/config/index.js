@@ -10,8 +10,8 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     imgDomain = 'http://120.79.29.47'
     apiDomain = 'http://localhost:1028'
-    // apiDomain = 'https://nodeapi2.yunser.net'
-    apiDomain2 = 'http://localhost:1026'
+    apiDomain = 'https://nodeapi2.yunser.net'
+    // apiDomain2 = 'http://localhost:1026'
 }
 
 module.exports = {
